@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="張凌赫個人介紹網站 - 中國演員、歌手">
+    <title>張凌赫 Zhang Linghe - 官方粉絲網站</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">張凌赫 ZLH</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">首頁</a></li>
+                <li><a href="#about">個人簡介</a></li>
+                <li><a href="#works">作品列表</a></li>
+                <li><a href="#gallery">相片集</a></li>
+                <li><a href="#fans">粉絲專區</a></li>
+                <li><a href="#news">最新動態</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="切換選單">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 首頁橫幅 -->
+        <section id="home" class="hero">
+            <div class="hero-slideshow">
+                <div class="slide active" style="background-image: url('images/hero-1.jpg');"></div>
+                <div class="slide" style="background-image: url('images/hero-2.jpg');"></div>
+                <div class="slide" style="background-image: url('images/hero-3.jpg');"></div>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-decoration">
+                <span class="floating-shape shape-1"></span>
+                <span class="floating-shape shape-2"></span>
+                <span class="floating-shape shape-3"></span>
+            </div>
+            <div class="hero-content">
+                <p class="hero-tagline">Actor & Singer</p>
+                <h1>張凌赫</h1>
+                <p class="hero-subtitle">Zhang Linghe</p>
+                <p class="hero-description">中國新生代實力派演員</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">190</span>
+                        <span class="stat-label">cm 身高</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">12.30</span>
+                        <span class="stat-label">生日</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">代表作品</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#works" class="btn-primary">瀏覽作品</a>
+                    <a href="#about" class="btn-secondary">了解更多</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span class="scroll-text">往下滑動</span>
+                <span class="scroll-arrow"></span>
+            </div>
+        </section>
+
+        <!-- 個人簡介 -->
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title">個人簡介</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="image-placeholder">照片</div>
+                    </div>
+                    <div class="about-info">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="label">中文名</span>
+                                <span class="value">張凌赫</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">本名</span>
+                                <span class="value">張家瑋</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">生日</span>
+                                <span class="value">1997年12月30日</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">星座</span>
+                                <span class="value">摩羯座</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">身高</span>
+                                <span class="value">190 cm</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">出生地</span>
+                                <span class="value">中國江蘇無錫</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">職業</span>
+                                <span class="value">演員</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">畢業院校</span>
+                                <span class="value">南京師範大學</span>
+                            </div>
+                        </div>
+                        <p class="bio">
+                            張凌赫，本名張家瑋，中國內地男演員。畢業於南京師範大學電氣工程專業，是名副其實的「理工男神」。
+                            2019年主演古裝劇《少女大人》正式進入演藝圈。
+                            2022年憑藉古裝仙俠劇《蒼蘭訣》中飾演長珩一角獲得廣泛關注。
+                            2023年主演的《雲之羽》、《寧安如夢》更讓他人氣大漲，成為新生代最受矚目的男演員之一。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 作品列表 -->
+        <section id="works" class="section works">
+            <div class="container">
+                <h2 class="section-title">作品列表</h2>
+                <div class="works-filter">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="drama">電視劇</button>
+                    <button class="filter-btn" data-filter="movie">電影</button>
+                    <button class="filter-btn" data-filter="variety">綜藝</button>
+                </div>
+                <div class="works-grid">
+                    <!-- 2025 -->
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <img src="images/drama-aini.jpg" alt="愛你 劇照">
+                        </div>
+                        <div class="work-info">
+                            <h3>愛你</h3>
+                            <p class="work-year">2025</p>
+                            <p class="work-role">飾演：何蘇葉</p>
+                            <p class="work-type">現代愛情劇</p>
+                        </div>
+                    </div>
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <img src="images/drama-yingtaohupo.jpg" alt="櫻桃琥珀 劇照">
+                        </div>
+                        <div class="work-info">
+                            <h3>櫻桃琥珀</h3>
+                            <p class="work-year">2025</p>
+                            <p class="work-role">主演</p>
+                            <p class="work-type">青春群像劇</p>
+                        </div>
+                    </div>
+                    <!-- 2024 -->
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <img src="images/drama-duhuanian.jpg" alt="度華年 劇照">
+                        </div>
+                        <div class="work-info">
+                            <h3>度華年</h3>
+                            <p class="work-year">2024</p>
+                            <p class="work-role">飾演：裴文宣</p>
+                            <p class="work-type">古裝愛情劇</p>
+                        </div>
+                    </div>
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <div class="image-placeholder">劇照</div>
+                        </div>
+                        <div class="work-info">
+                            <h3>四海重明</h3>
+                            <p class="work-year">2024</p>
+                            <p class="work-role">飾演：嵇炀</p>
+                            <p class="work-type">古裝劇</p>
+                        </div>
+                    </div>
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <div class="image-placeholder">劇照</div>
+                        </div>
+                        <div class="work-info">
+                            <h3>狐妖小紅娘·月紅篇</h3>
+                            <p class="work-year">2024</p>
+                            <p class="work-role">友情客串</p>
+                            <p class="work-type">古裝仙俠劇</p>
+                        </div>
+                    </div>
+                    <!-- 2023 -->
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <img src="images/drama-ninganrumeng.jpg" alt="寧安如夢 劇照">
+                        </div>
+                        <div class="work-info">
+                            <h3>寧安如夢</h3>
+                            <p class="work-year">2023</p>
+                            <p class="work-role">飾演：謝危</p>
+                            <p class="work-type">古裝權謀劇</p>
+                        </div>
+                    </div>
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <img src="images/drama-yunzhiyu.jpg" alt="雲之羽 劇照">
+                        </div>
+                        <div class="work-info">
+                            <h3>雲之羽</h3>
+                            <p class="work-year">2023</p>
+                            <p class="work-role">飾演：宮子羽</p>
+                            <p class="work-type">古裝武俠劇</p>
+                        </div>
+                    </div>
+                    <!-- 2022 -->
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <img src="images/drama-canglanjue.jpg" alt="蒼蘭訣 劇照">
+                        </div>
+                        <div class="work-info">
+                            <h3>蒼蘭訣</h3>
+                            <p class="work-year">2022</p>
+                            <p class="work-role">飾演：長珩</p>
+                            <p class="work-type">古裝仙俠劇</p>
+                        </div>
+                    </div>
+                    <!-- 2020 -->
+                    <div class="work-card" data-category="drama">
+                        <div class="work-image">
+                            <div class="image-placeholder">劇照</div>
+                        </div>
+                        <div class="work-info">
+                            <h3>少女大人</h3>
+                            <p class="work-year">2020</p>
+                            <p class="work-role">飾演：裴錦繹</p>
+                            <p class="work-type">古裝懸疑劇</p>
+                        </div>
+                    </div>
+                    <!-- 綜藝 -->
+                    <div class="work-card" data-category="variety">
+                        <div class="work-image">
+                            <img src="images/variety-tuili.jpg" alt="開始推理吧 節目照">
+                        </div>
+                        <div class="work-info">
+                            <h3>開始推理吧</h3>
+                            <p class="work-year">2024-2025</p>
+                            <p class="work-role">固定嘉賓（第二、三季）</p>
+                            <p class="work-type">推理真人秀</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 相片集 -->
+        <section id="gallery" class="section gallery">
+            <div class="container">
+                <h2 class="section-title">相片集</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="image-placeholder large">照片 1</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-placeholder">照片 2</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-placeholder">照片 3</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-placeholder large">照片 4</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-placeholder">照片 5</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-placeholder">照片 6</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-placeholder">照片 7</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="image-placeholder large">照片 8</div>
+                    </div>
+                </div>
+                <p class="gallery-note">* 請替換為實際照片，注意版權問題</p>
+            </div>
+        </section>
+
+        <!-- 粉絲專區 -->
+        <section id="fans" class="section fans">
+            <div class="container">
+                <h2 class="section-title">粉絲專區</h2>
+                <div class="fans-content">
+                    <div class="fans-info-grid">
+                        <div class="fans-card">
+                            <div class="fans-card-icon">🐮</div>
+                            <h3>暱稱</h3>
+                            <p class="fans-value">牛牛</p>
+                            <p class="fans-desc">因唱歌時的獨特嗓音而得名</p>
+                        </div>
+                        <div class="fans-card">
+                            <div class="fans-card-icon">🌰</div>
+                            <h3>粉絲名</h3>
+                            <p class="fans-value">核桃</p>
+                            <p class="fans-desc">「赫」與「核」諧音</p>
+                        </div>
+                        <div class="fans-card">
+                            <div class="fans-card-icon">❤️</div>
+                            <h3>應援色</h3>
+                            <div class="color-display">
+                                <span class="color-swatch" style="background: #971230;"></span>
+                                <span class="color-name">凌赫紅</span>
+                            </div>
+                            <p class="fans-desc">#971230（取自生日9712/30）</p>
+                        </div>
+                        <div class="fans-card">
+                            <div class="fans-card-icon">📅</div>
+                            <h3>重要日期</h3>
+                            <p class="fans-value">12月30日</p>
+                            <p class="fans-desc">張凌赫生日・摩羯座</p>
+                        </div>
+                    </div>
+                    <div class="fans-community">
+                        <h3>粉絲社群</h3>
+                        <div class="community-links">
+                            <a href="https://weibo.com/n/张凌赫z" target="_blank" class="community-link">
+                                <span class="community-icon">📱</span>
+                                <span>微博官方帳號</span>
+                            </a>
+                            <a href="https://www.instagram.com/zhanglinghe__1230/" target="_blank" class="community-link">
+                                <span class="community-icon">📸</span>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://weibo.com/p/100808fc5f92f7c57c95a64e2b2e3c3f8e8a9b" target="_blank" class="community-link">
+                                <span class="community-icon">💬</span>
+                                <span>微博超話</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新動態 -->
+        <section id="news" class="section news">
+            <div class="container">
+                <h2 class="section-title">最新動態</h2>
+                <div class="news-list">
+                    <article class="news-item">
+                        <a href="https://www.instagram.com/p/DSFCwclksN8/" target="_blank" class="news-link">
+                            <div class="news-date">
+                                <span class="day">30</span>
+                                <span class="month">12月</span>
+                            </div>
+                            <div class="news-content">
+                                <h3>生日快樂！張凌赫27歲了</h3>
+                                <p>12月30日是張凌赫的生日，粉絲們紛紛送上祝福，各地應援活動熱烈展開。</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="news-item">
+                        <a href="https://weibo.zhaoyizhe.com/date/20241231/" target="_blank" class="news-link">
+                            <div class="news-date">
+                                <span class="day">31</span>
+                                <span class="month">12月</span>
+                            </div>
+                            <div class="news-content">
+                                <h3>東方衛視跨年盛典</h3>
+                                <p>張凌赫參加《夢圓東方·2025東方衛視跨年盛典》，演唱《我是真的受傷了》《愛，很簡單》。</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="news-item">
+                        <a href="https://zh.wikipedia.org/wiki/%E5%BC%A0%E5%87%8C%E8%B5%AB" target="_blank" class="news-link">
+                            <div class="news-date">
+                                <span class="day">07</span>
+                                <span class="month">7月</span>
+                            </div>
+                            <div class="news-content">
+                                <h3>微博粉絲破千萬</h3>
+                                <p>張凌赫微博粉絲數突破1000萬！隨著《度華年》熱播，粉絲量暴增200萬+。</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>張凌赫粉絲網站</h3>
+                    <p>這是一個由粉絲自發建立的非官方網站</p>
+                </div>
+                <div class="footer-social">
+                    <h4>關注更多</h4>
+                    <div class="social-links">
+                        <a href="https://weibo.com/n/张凌赫z" target="_blank" class="social-link" title="微博">微博</a>
+                        <a href="https://www.instagram.com/zhanglinghe__1230/" target="_blank" class="social-link" title="Instagram">Instagram</a>
+                        <a href="https://www.xiaohongshu.com/user/profile/5f3f3f3f000000000101d3f3" target="_blank" class="social-link" title="小紅書">小紅書</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 張凌赫粉絲網站. 僅供粉絲交流使用，圖片版權歸原作者所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
