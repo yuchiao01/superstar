@@ -2,7 +2,7 @@
 
 # 張凌赫粉絲網站 Docker 啟動腳本
 
-IMAGE_NAME="joychang608/zlh:2"
+IMAGE_NAME="yuchiao/zlh:1"
 CONTAINER_NAME="zlh-fansite"
 PORT="8080"
 
