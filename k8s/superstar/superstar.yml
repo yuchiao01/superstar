@@ -1,0 +1,103 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: superstar
+  namespace: joy-k8s
+  annotations:
+    reloader.stakater.com/auto: "true"
+spec:
+  selector:
+    matchLabels:
+      app: superstar
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: superstar
+    spec:
+      restartPolicy: Always
+      #nodeSelector:
+      #  role: apps
+      #  project: dt
+      #  team: dt
+      automountServiceAccountToken: false
+      containers:
+      - name: superstar
+        image: yuchiao/zlh
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 80
+          name: api-svc-port
+        resources:
+          requests:
+            cpu: "400m"
+            memory: "800Mi"
+          limits:
+            cpu: "400m"
+            memory: "800Mi"
+        livenessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 15
+          timeoutSeconds: 10
+          failureThreshold: 3
+          successThreshold: 1
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 15
+          timeoutSeconds: 10
+          failureThreshold: 3
+          successThreshold: 1
+        securityContext:
+          # runAsUser: 10101
+          # runAsGroup: 10101
+          runAsNonRoot: false
+          readOnlyRootFilesystem: false
+          allowPrivilegeEscalation: false
+          privileged: false
+          capabilities: {}
+          seccompProfile:
+            type: RuntimeDefault
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: joy-k8s
+  name: superstar-svc
+  labels:
+    app: superstar
+spec:
+  type: ClusterIP
+  selector:
+    app: superstar
+  ports:
+  - name: "superstar-service-port"
+    port: 80
+    targetPort: 80
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: joy-k8s-superstar
+  namespace: joy-k8s
+spec:
+  rules:
+    - host: "zlh.fancenter.online"           ## ！ --> 定義域名 
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: superstar-svc          ## ！ --> 定義轉到哪個服務的svc
+                port:
+                  number: 80
+  tls:
+  - hosts:
+      - "zlh.fancenter.online"   
+    secretName: fancenter.online-tls                     ## ！ --> k8s secrets 憑證的名稱 目前還沒建立

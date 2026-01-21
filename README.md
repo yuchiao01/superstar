@@ -43,6 +43,20 @@ docker-compose up -d
 
 直接用瀏覽器開啟 `index.html` 即可預覽（部分功能可能受限）。
 
+### 方式四：Kubernetes 部署
+
+```bash
+# 使用 kustomize 部署
+kubectl apply -k k8s/superstar/
+
+# 部署 Cloudflare Tunnel（需先設定 credentials secret）
+kubectl apply -f k8s/cloudflare-tunnel/cloudflared.yml
+```
+
+目前配置的公網域名：
+- `zlh.fancenter.online` - 粉絲網站
+- `my-zabbix.fancenter.online` - Zabbix 監控
+
 ## 專案結構
 
 ```
@@ -58,6 +72,12 @@ superstar/
 │   ├── docker-compose.yml
 │   ├── docker-start.sh # 容器啟動腳本
 │   └── nginx.conf      # Nginx 配置
+├── k8s/
+│   ├── superstar/      # Kubernetes 部署配置
+│   │   ├── superstar.yml
+│   │   └── kustomization.yml
+│   └── cloudflare-tunnel/  # Cloudflare Tunnel 配置
+│       └── cloudflared.yml
 ├── build.sh            # 建置腳本
 └── README.md
 ```
