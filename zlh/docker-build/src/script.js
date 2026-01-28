@@ -153,4 +153,51 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     console.log('張凌赫粉絲網站載入完成！');
+
+    // ===== 核桃飄落效果 =====
+    createFallingWalnut();
 });
+
+// ====================================
+// 核桃飄落效果（背景裝飾）
+// ====================================
+function createFallingWalnut() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const walnut = document.createElement('div');
+    walnut.innerHTML = '🌰';
+    walnut.style.cssText = `
+        position: absolute;
+        font-size: ${Math.random() * 20 + 15}px;
+        left: ${Math.random() * 100}%;
+        top: -50px;
+        opacity: ${Math.random() * 0.5 + 0.3};
+        pointer-events: none;
+        z-index: 0;
+        animation: walnutFall ${Math.random() * 5 + 5}s linear forwards;
+    `;
+
+    hero.appendChild(walnut);
+
+    setTimeout(() => {
+        walnut.remove();
+    }, 10000);
+}
+
+// 每隔一段時間創建飄落的核桃
+setInterval(createFallingWalnut, 3000);
+
+// 添加飄落動畫樣式
+const walnutFallStyle = document.createElement('style');
+walnutFallStyle.textContent = `
+    @keyframes walnutFall {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+        }
+    }
+`;
+document.head.appendChild(walnutFallStyle);

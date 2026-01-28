@@ -1,0 +1,32 @@
+# namePrefix: dev-
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: joy-k8s
+
+images:
+- name: yuchiao/lyn
+  newTag: '3'
+
+labels:
+  - pairs:
+      env: rel
+      project: dt
+      team: dt
+    includeTemplates: true
+
+resources:
+  - lyn.yml
+
+## // ------------------------------------------------------------------- // ##
+## * env * ##
+#secretGenerator:
+#- name: lyn.json
+#  namespace: joy-k8s
+#  files:
+#  - envConfig=env/lyn.json
+#  options:
+#    disableNameSuffixHash: true
+#    labels:
+#      app: lyn
+## // ------------------------------------------------------------------- // ##

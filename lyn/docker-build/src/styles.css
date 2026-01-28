@@ -1,0 +1,972 @@
+/* ====================================
+   劉宇寧粉絲網站 - 向日葵黃主題
+   ==================================== */
+
+/* 色彩變數 - 向日葵黃主題 */
+:root {
+    /* 主色 - 向日葵黃 */
+    --sunflower-yellow: #FFC300;
+    --sunflower-gold: #FFB000;
+    --sunflower-light: #FFE066;
+    --sunflower-pale: #FFF8DC;
+
+    /* 輔助色 - 向日葵的棕色花心 */
+    --brown-dark: #5D4037;
+    --brown-medium: #795548;
+    --brown-light: #A1887F;
+
+    /* 葉子綠 */
+    --leaf-green: #4CAF50;
+    --leaf-dark: #2E7D32;
+
+    /* 中性色 */
+    --white: #FFFFFF;
+    --off-white: #FFFEF7;
+    --cream: #FFF9E6;
+    --text-dark: #3E2723;
+    --text-medium: #5D4037;
+    --text-light: #8D6E63;
+
+    /* 漸層 */
+    --gradient-sunflower: linear-gradient(135deg, #FFE066 0%, #FFC300 50%, #FFB000 100%);
+    --gradient-warm: linear-gradient(135deg, #FFF8DC 0%, #FFE066 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(255,195,0,0.9) 0%, rgba(255,176,0,0.95) 100%);
+}
+
+/* 基礎樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--off-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ====================================
+   導航列
+   ==================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(255, 195, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brown-dark);
+}
+
+.logo .sunflower-icon {
+    font-size: 2rem;
+    animation: sunflowerSway 3s ease-in-out infinite;
+}
+
+@keyframes sunflowerSway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.logo-text {
+    background: var(--gradient-sunflower);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--gradient-sunflower);
+    border-radius: 2px;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--sunflower-gold);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--brown-dark);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* ====================================
+   主視覺區
+   ==================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: var(--gradient-warm);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255, 224, 102, 0.5) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 195, 0, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="50">🌻</text></svg>');
+    background-size: 150px;
+    opacity: 0.05;
+    animation: floatBackground 30s linear infinite;
+}
+
+@keyframes floatBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: 150px 150px; }
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+    position: relative;
+}
+
+.sunflower-decoration {
+    position: absolute;
+    font-size: 4rem;
+    opacity: 0.8;
+    animation: sunflowerFloat 4s ease-in-out infinite;
+}
+
+.sunflower-decoration.left {
+    left: -80px;
+    top: 0;
+}
+
+.sunflower-decoration.right {
+    right: -80px;
+    bottom: 0;
+    animation-delay: -2s;
+}
+
+@keyframes sunflowerFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--brown-dark);
+    text-shadow: 3px 3px 0 var(--sunflower-yellow);
+    margin-bottom: 10px;
+    animation: titleAppear 1s ease-out;
+}
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    color: var(--brown-medium);
+    font-weight: 300;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    animation: titleAppear 1s ease-out 0.2s both;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    margin-bottom: 30px;
+    animation: titleAppear 1s ease-out 0.4s both;
+}
+
+.hero-quote {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px 40px;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(255, 195, 0, 0.2);
+    animation: titleAppear 1s ease-out 0.6s both;
+}
+
+.hero-quote p {
+    font-size: 1.3rem;
+    color: var(--brown-dark);
+    font-style: italic;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--brown-medium);
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.arrow-down {
+    width: 20px;
+    height: 20px;
+    border-right: 3px solid var(--brown-medium);
+    border-bottom: 3px solid var(--brown-medium);
+    transform: rotate(45deg);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* ====================================
+   通用區塊標題
+   ==================================== */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--brown-dark);
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.section-title .sunflower-icon {
+    font-size: 2rem;
+}
+
+/* ====================================
+   個人資料區
+   ==================================== */
+.profile-section {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.profile-card {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 50px;
+    background: var(--cream);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(255, 195, 0, 0.15);
+}
+
+.profile-image {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 195, 0, 0.3);
+}
+
+.image-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--gradient-sunflower);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(255, 195, 0, 0.3);
+}
+
+.placeholder-text {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.info-value {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.info-value.highlight {
+    color: var(--sunflower-gold);
+    font-weight: 700;
+}
+
+.color-badge {
+    display: inline-block;
+    background: var(--gradient-sunflower);
+    color: var(--brown-dark);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.profile-bio h3 {
+    color: var(--brown-dark);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.profile-bio p {
+    color: var(--text-medium);
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* ====================================
+   戲劇作品區
+   ==================================== */
+.dramas-section {
+    padding: 100px 0;
+    background: var(--gradient-warm);
+}
+
+.drama-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    padding: 12px 30px;
+    border: none;
+    background: var(--white);
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.tab-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 195, 0, 0.3);
+}
+
+.tab-btn.active {
+    background: var(--gradient-sunflower);
+    color: var(--brown-dark);
+}
+
+.dramas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.dramas-grid.hidden {
+    display: none;
+}
+
+.drama-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.drama-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 195, 0, 0.25);
+}
+
+.drama-image {
+    position: relative;
+    height: 250px;
+    background: var(--gradient-sunflower);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.drama-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.3s;
+}
+
+.drama-card:hover .drama-image img {
+    transform: scale(1.1);
+}
+
+.drama-placeholder {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.drama-year {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--brown-dark);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.drama-info {
+    padding: 25px;
+}
+
+.drama-info h3 {
+    font-size: 1.4rem;
+    color: var(--brown-dark);
+    margin-bottom: 10px;
+}
+
+.drama-role {
+    color: var(--sunflower-gold);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.drama-partner {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.drama-desc {
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ====================================
+   音樂作品區
+   ==================================== */
+.music-section {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.music-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.music-category {
+    margin-bottom: 60px;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    color: var(--brown-dark);
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--sunflower-light);
+}
+
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.album-card {
+    display: flex;
+    gap: 20px;
+    background: var(--cream);
+    padding: 20px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.album-card:hover {
+    transform: translateX(10px);
+    box-shadow: -5px 5px 20px rgba(255, 195, 0, 0.2);
+}
+
+.album-cover {
+    width: 120px;
+    height: 120px;
+    background: var(--gradient-sunflower);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    flex-shrink: 0;
+}
+
+.album-info h4 {
+    font-size: 1.2rem;
+    color: var(--brown-dark);
+    margin-bottom: 5px;
+}
+
+.album-year {
+    color: var(--sunflower-gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.album-desc {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.album-collab, .album-tracks {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* OST 列表 */
+.ost-list {
+    display: grid;
+    gap: 15px;
+}
+
+.ost-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: var(--cream);
+    border-radius: 15px;
+    border-left: 4px solid var(--sunflower-yellow);
+    transition: all 0.3s;
+}
+
+.ost-item:hover {
+    background: var(--sunflower-pale);
+    transform: translateX(5px);
+}
+
+.ost-drama {
+    font-weight: 600;
+    color: var(--brown-dark);
+}
+
+.ost-song {
+    color: var(--text-medium);
+}
+
+/* 獎項 */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.award-card {
+    background: var(--cream);
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.award-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 195, 0, 0.2);
+}
+
+.award-card.special {
+    background: var(--gradient-sunflower);
+}
+
+.award-card.special p {
+    color: var(--brown-dark);
+}
+
+.award-year {
+    display: inline-block;
+    background: var(--sunflower-gold);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.award-card p {
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ====================================
+   相簿區
+   ==================================== */
+.gallery-section {
+    padding: 100px 0;
+    background: var(--gradient-warm);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 20px;
+}
+
+.gallery-item {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item.large {
+    grid-column: span 2;
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-sunflower);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.gallery-item:hover .gallery-placeholder {
+    transform: scale(1.05);
+}
+
+/* ====================================
+   頁尾
+   ==================================== */
+.footer {
+    background: var(--brown-dark);
+    color: var(--white);
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-logo .sunflower-icon {
+    font-size: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: var(--sunflower-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--sunflower-yellow);
+}
+
+.footer-note {
+    color: var(--brown-light);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.footer-slogan {
+    color: var(--sunflower-light);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.footer-sunflowers {
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 10px;
+    opacity: 0.8;
+}
+
+/* ====================================
+   響應式設計
+   ==================================== */
+@media (max-width: 992px) {
+    .profile-card {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 200px);
+    }
+
+    .gallery-item.large {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        letter-spacing: 4px;
+    }
+
+    .sunflower-decoration {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dramas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .albums-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .album-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .ost-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .awards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .gallery-item,
+    .gallery-item.large {
+        grid-column: span 1;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-quote {
+        padding: 15px 25px;
+    }
+
+    .hero-quote p {
+        font-size: 1rem;
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+}
